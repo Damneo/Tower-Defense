@@ -2,31 +2,34 @@ function Map (jsonMapFile) {
 
 	// properties
 
-	this.width 			= 0,
-	this.height 		= 0,
 	this.tileSize	 	= 0,
+	this.nbXtiles 		= 0,
+	this.nbYtiles 		= 0,
 	this.waves 			= [],
 
 	// methods
 
+	//Init the properties with json file map data
 	this.init = function (json) {
 
 		//1st check all data in the json
 		var errors 	= "";
 
-		errors	= (typeof json.width == 'undefined') ? "Map : property 'width' unset\n" : "";
-		errors	= errors + ((typeof json.height == 'undefined') ? "Map : property 'height' unset\n" : "");
-		errors	= errors + ((typeof json.tileSize == 'undefined') ? "Map : property 'tileSize' unset\n" : "");
+		errors	= (typeof json.tileSize == 'undefined') ? "Map : property 'tileSize' unset\n" : "";
+		errors	= errors + ((typeof json.nbXtiles == 'undefined') ? "Map : property 'nbXtiles' unset\n" : "");
+		errors	= errors + ((typeof json.nbYtiles == 'undefined') ? "Map : property 'nbYtiles' unset\n" : "");
 		errors	= errors + ((typeof json.waves == 'undefined') ? "Map : property 'waves' unset\n" : "");
 
 
 		//2nd we can set properties
 		if (errors == "") {
 
-			this.width 			= json.width;
-			this.height 		= json.height;
 			this.tileSize 		= json.tileSize;
+			this.nbXtiles 		= json.nbXtiles;
+			this.nbYtiles 		= json.nbYtiles;
 			this.waves 			= json.waves;
+
+			this.setCanvas(this.tileSize*this.nbXtiles, this.tileSize*this.nbYtiles);
 
 			return true;
 		} else {
@@ -36,6 +39,7 @@ function Map (jsonMapFile) {
 		}
 	},
 
+	//Loads json map file.
 	this.load = function (jsonFile) {
 
 		var me = this;
@@ -55,10 +59,30 @@ function Map (jsonMapFile) {
 		});
 	},
 
+	//Align and trace canvas border in the page
+	this.setCanvas = function (width, height) {
+
+		$("#container").css({"width":width, "height":height});
+		$("#main_canvas").attr({"width":width, "height":height});
+	},
+
+	//Tool method : Display the cells of the map
+	this.displayCells = function (canvasId) {
+
+		var canvas 	= $("#"+canvasId)[0];
+		var context = canvas.getContext('2d');
+
+		context.beginPath();
+      	context.moveTo(100, 150);
+      	context.lineTo(450, 50);
+      	context.stroke();
+	},
+
 	this.next = function () {
 		console.log("success");
-		console.log(this.waves);
+		this.displayCells("main_canvas");
 	}
 
+	//Main call
 	this.load(jsonMapFile);
 }
