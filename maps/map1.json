@@ -1,0 +1,24 @@
+{
+	"width": 800,
+	"height": 400,
+	"tileSize": 20,
+	"waves": [
+		{
+			"delay": 10,
+			"enemies": [
+				{
+					"level": 1,
+					"total": 8,
+					"group": 2,
+					"delay": 2
+				},
+				{
+					"level": 2,
+					"total": 2,
+					"group": 1
+				}
+			]
+		}
+	],
+	"gold": 200
+}

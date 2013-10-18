@@ -1,0 +1,1 @@
+map = new Map("map1.json");
