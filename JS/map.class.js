@@ -73,9 +73,19 @@ function Map (jsonMapFile) {
 		var context = canvas.getContext('2d');
 
 		context.beginPath();
-      	context.moveTo(100, 150);
-      	context.lineTo(450, 50);
-      	context.stroke();
+
+		//trace vertical lines
+		for (var i=1; i<this.nbXtiles; i++) {
+	      	context.moveTo(i*this.tileSize+0.5, 0);
+	      	context.lineTo(i*this.tileSize+0.5, this.nbYtiles*this.tileSize);
+		};
+		//trace horizontal lines
+		for (var i=1; i<this.nbYtiles; i++) {
+	      	context.moveTo(0, i*this.tileSize+0.5);
+	      	context.lineTo(this.nbXtiles*this.tileSize, i*this.tileSize+0.5);
+		};
+
+		context.stroke();
 	},
 
 	this.next = function () {
