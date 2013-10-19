@@ -86,6 +86,53 @@ function Map (jsonMapFile) {
 		};
 
 		context.stroke();
+
+		this.DisplayLake();
+	},
+
+	//Just for test. TO REMOVE
+	this.DisplayLake = function () {
+		this.drawSprite("main_canvas", "wtl", 40, 0);
+		this.drawSprite("main_canvas", "w", 60, 0);
+		this.drawSprite("main_canvas", "wtr", 80, 0);
+		this.drawSprite("main_canvas", "w", 40, 20);
+		this.drawSprite("main_canvas", "w", 60, 20);
+		this.drawSprite("main_canvas", "w", 80, 20);
+		this.drawSprite("main_canvas", "wbl", 40, 40);
+		this.drawSprite("main_canvas", "w", 60, 40);
+		this.drawSprite("main_canvas", "wbr", 80, 40);
+	},
+
+	this.drawSprite = function (canvasId, typeSprite, destX, destY) {
+
+		var me 			= this;
+		var canvas 		= $("#"+canvasId)[0];
+		var context 	= canvas.getContext('2d');
+		var imageObj 	= new Image();
+
+		switch (typeSprite) {
+			case "w":
+				var sourceX = 0, sourceY = 0;
+				break;
+			case "wtl":
+				var sourceX = 20, sourceY = 20;
+				break;
+			case "wtr":
+				var sourceX = 40, sourceY = 0;
+				break;
+			case "wbl":
+				var sourceX = 20, sourceY = 0;
+				break;
+			case "wbr":
+				var sourceX = 0, sourceY = 20;
+				break;
+		}
+
+		imageObj.onload = function() {
+			context.drawImage(imageObj, sourceX, sourceY, me.tileSize, me.tileSize, destX, destY, me.tileSize, me.tileSize);
+		};
+
+		imageObj.src = 'maps/img/spritesheet.png';
 	},
 
 	this.next = function () {
