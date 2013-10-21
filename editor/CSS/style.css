@@ -1,0 +1,17 @@
+
+#grid .cell {
+	border-bottom:1px solid;
+	border-right:1px solid;
+	float: left;
+}
+
+#grid .cell.top {
+	border-top:1px solid;
+}
+#grid .cell.left {
+	border-left:1px solid;
+}
+
+#grid .clear {
+	clear: both;
+}
