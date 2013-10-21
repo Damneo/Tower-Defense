@@ -49,6 +49,10 @@
 				}
 			?>
 		</div>
+		<div id="enemies" class="section">enemies</div>
+		<div class="enemies content closed">
+			
+		</div>
 	</div>
 </body>
 </html>

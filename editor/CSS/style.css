@@ -38,13 +38,17 @@ body {
 	line-height: 32px;
 	text-align: center;
 	font-size: 15px;
+	cursor: pointer;
 }
 
 #tool .content {
 	border-bottom: 1px solid black;
 	background: #efefef;
-	height: 400px;
-	padding-left: 10px
+	min-height: 50px;
+	padding-left: 10px;
+}
+#tool .content.closed {
+	display: none;
 }
 
 .tiles.content img {
