@@ -51,6 +51,9 @@ body {
 	border: 1px solid #000;
 	margin: 1px 0 0 1px;
 }
+.tiles.content img.selected {
+	border: 1px solid #ff0000;
+}
 
 .tiles.content .title-tiles {
 	padding-top: 5px;

@@ -10,6 +10,8 @@
 	<meta charset="UTF-8">
 	<title>Tower Defense Editor by Damien Rollot</title>
 	<link rel="stylesheet" href="CSS/style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script src="JS/main.js"></script>
 </head>
 <body>
 	<div id="grid">
@@ -42,6 +44,7 @@
 								echo "<img src='".$main_folder."/".$folder."/".$image."' />";
 							}
 						}
+						echo "<img style='width:".$tileSize."px;height:".$tileSize."px;' src='' />";
 					}
 				}
 			?>
