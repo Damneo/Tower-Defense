@@ -1,3 +1,10 @@
+body {
+	font-family: Arial;
+}
+
+#grid {
+	float: left;
+}
 
 #grid .cell {
 	border-bottom:1px solid;
@@ -14,4 +21,38 @@
 
 #grid .clear {
 	clear: both;
+}
+
+#tool {
+	width: 400px;
+	border: 1px solid black;
+	margin-left: 870px;
+	border-bottom: none
+}
+
+#tool .section {
+	height: 30px;
+	border-bottom: 1px solid black;
+	background: #e1d4d4;
+	text-transform: uppercase;
+	line-height: 32px;
+	text-align: center;
+	font-size: 15px;
+}
+
+#tool .content {
+	border-bottom: 1px solid black;
+	background: #efefef;
+	height: 400px;
+	padding-left: 10px
+}
+
+.tiles.content img {
+	border: 1px solid #000;
+	margin: 1px 0 0 1px;
+}
+
+.tiles.content .title-tiles {
+	padding-top: 5px;
+	font-size: 12px;
 }

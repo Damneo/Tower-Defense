@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Tower Defense Editor by Damien Rollot</title>
 	<link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
@@ -24,6 +24,28 @@
 			}
 		}
 	?>
+	</div>
+
+	<div id="tool">
+		<div id="tiles" class="section">tiles</div>
+		<div class="tiles content">
+			<?php
+				$main_folder 	= "tiles";
+				$tiles_folder 	= scandir($main_folder);
+
+				foreach ($tiles_folder as $folder) {
+					if ($folder != '.' && $folder != '..') {
+						echo "<div class='title-tiles'>".ucfirst($folder)."</div>";
+						$imgfiles = scandir($main_folder."/".$folder);
+						foreach ($imgfiles as $image) {
+							if ($image != '.' && $image != '..') {
+								echo "<img src='".$main_folder."/".$folder."/".$image."' />";
+							}
+						}
+					}
+				}
+			?>
+		</div>
 	</div>
 </body>
 </html>
